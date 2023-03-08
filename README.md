@@ -107,9 +107,6 @@ ggraph(data$tidygraph[[13]], layout = "kk") +
 
 <img src="man/figures/README-graph-1.png" width="100%" />
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
-
 ## Useful resources on the study
 
 - Stulp, Gert, 2020, “Methods and Materials of the Social networks and
