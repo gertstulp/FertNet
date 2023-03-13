@@ -5,20 +5,17 @@
 \title{Produces tidy dataset of social networks and fertility data (LISS: wj18a_EN_1.0p.sav) with network data as listcolumns}
 \usage{
 produce_data(
-  add_question_text = FALSE,
   tidygraph_col = FALSE,
   background_vars = FALSE,
-  remove_timing_vars = FALSE
+  remove_timing_vars = TRUE
 )
 }
 \arguments{
-\item{add_question_text}{Add question text as variable attributes? (default: FALSE)}
-
 \item{tidygraph_col}{Should a variable \code{tidygraph} be created that includes tidygraph object for each respondent? (default: FALSE)}
 
 \item{background_vars}{Should respondent background variables be added? Requires presence of avars_201802_EN_1.0p.sav (default: FALSE)}
 
-\item{remove_timing_vars}{Should variables on timing of survey responses be removed? (default: FALSE)}
+\item{remove_timing_vars}{Should variables on timing of survey responses be removed? (default: TRUE)}
 }
 \value{
 Tibble of social networks and fertility data (LISS: wj18a_EN_1.0p.sav) with network data as listcolumns
@@ -29,6 +26,6 @@ Produces tidy dataset of social networks and fertility data (LISS: wj18a_EN_1.0p
 \examples{
 \dontshow{if (file.exists("wj18a_EN_1.0p.sav")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 produce_data()
-produce_data(TRUE, TRUE, TRUE, TRUE)
+produce_data(TRUE, TRUE, FALSE)
 \dontshow{\}) # examplesIf}
 }
