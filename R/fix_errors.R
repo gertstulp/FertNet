@@ -65,23 +65,35 @@ fix_errors <- function(data) {
   data$age_alter20[data$nomem_encr == 815560] <- "18-"
   data$age_alter21[data$nomem_encr == 815560] <- "18-"
 
+  data$remove_resp[data$nomem_encr == 815560] <- "Listed child below 18"
+
   data$age_alter4[data$nomem_encr == 822900] <- "18-"
   data$age_alter25[data$nomem_encr == 822900] <- "18-"
+
+  data$remove_resp[data$nomem_encr == 822900] <- "Listed child below 18"
 
   data$age_alter15[data$nomem_encr == 827145] <- "18-"
   data$age_alter16[data$nomem_encr == 827145] <- "18-"
 
+  data$remove_resp[data$nomem_encr == 827145] <- "Listed child below 18"
+
   data$age_alter4[data$nomem_encr == 832040] <- "18-"
+
+  data$remove_resp[data$nomem_encr == 832040] <- "Listed child below 18"
 
   data$age_alter2[data$nomem_encr == 870217] <- "18-"
   data$age_alter3[data$nomem_encr == 870217] <- "18-"
   data$relation_alter2[data$nomem_encr == 870217] <- "4"
   data$relation_alter3[data$nomem_encr == 870217] <- "4"
 
+  data$remove_resp[data$nomem_encr == 870217] <- "Listed child below 18"
+
   data$age_alter3[data$nomem_encr == 887640] <- "18-"
   data$age_alter4[data$nomem_encr == 887640] <- "18-"
   data$relation_alter3[data$nomem_encr == 887640] <- "4"
   data$relation_alter4[data$nomem_encr == 887640] <- "4"
+
+  data$remove_resp[data$nomem_encr == 887640] <- "Listed child below 18"
 
   data$has_child_alter17[data$nomem_encr == 817800] <- "Does not have (a) child(ren) and is not expecting a child"
   data$num_child_alter17[data$nomem_encr == 817800] <- NA
@@ -281,6 +293,8 @@ fix_errors <- function(data) {
   data$age_alter6[data$nomem_encr == 870700] <- "18-"
   data$age_child_alter5[data$nomem_encr == 870700] <- "I don't know"
 
+  data$remove_resp[data$nomem_encr == 870700] <- "Listed child below 18"
+
   data$has_child_alter24[data$nomem_encr == 873617] <- "Does not have (a) child(ren) and is not expecting a child"
   data$num_child_alter24[data$nomem_encr == 873617] <- NA
   data$age_child_alter24[data$nomem_encr == 873617] <- NA
@@ -435,11 +449,15 @@ fix_errors <- function(data) {
   data$age_alter25[data$nomem_encr == 832423] <- "18-"
   data$relation_alter25[data$nomem_encr == 832423] <- "4"
 
+  data$remove_resp[data$nomem_encr == 832423] <- "Listed child below 18"
+
   data$relation_alter1[data$nomem_encr == 833786] <- "4"
   data$relation_alter2[data$nomem_encr == 833786] <- "4"
 
   data$age_alter1[data$nomem_encr == 834219] <- "18-"
   data$relation_alter1[data$nomem_encr == 834219] <- "4"
+
+  data$remove_resp[data$nomem_encr == 834219] <- "Listed child below 18"
 
   # this deviates from original correction, which used erroneous nomem_encr
   data$relation_alter9[data$nomem_encr == 836892] <- "14: via familie"
@@ -521,6 +539,7 @@ fix_errors <- function(data) {
   # `vars_age`, `vars_relation`, `vars_closeness`, `vars_contact_f2f, and
   # `vars_contact_other` defined in `var_types.R`
 
+  # These alter attributes required responses for each individual alter
   data$age_missing <- rowSums(data[vars_age] == "")
   data$relation_missing <- rowSums(is.na(data[vars_relation]))
   data$closeness_missing <- rowSums(is.na(data[vars_closeness]))
@@ -529,15 +548,11 @@ fix_errors <- function(data) {
 
   vars_missing <- c("age_missing", "relation_missing", "closeness_missing",
                     "contact_f2f_missing", "contact_other_missing")
-  data$total_missing <- rowSums(data[ , vars_missing])
-  # Divide by 275 (11 * 25) because there are 11 alter questions that all needed
-  # 25 answers. For 5 binary alter variables, missing values were impossible.
-  # For 6 other alter attributes, questions were not assessed for all alters.
-  data$perc_missing_alter_attr <- (data$total_missing/275) * 100
+  data$missing_alter_attr <- rowSums(data[ , vars_missing])
 
   ### CREATE VARIABLE notes ###
   # This creates a variable `notes` that reports potential data worries
-  # of respondents
+  # for each respondent
   data$notes <- vector(length = nrow(data), "character")
 
   for(i in 1:nrow(data)) {
@@ -551,8 +566,8 @@ fix_errors <- function(data) {
     if(data$ties_missing[i] == 25) {
       temp_char <- c(temp_char, "all alter-ties missing")
     }
-    if(data$perc_missing_alter_attr[i] > 10) {
-      temp_char <- c(temp_char, "> 10% missing on alter attributes")
+    if(data$missing_alter_attr[i] >= 10) {
+      temp_char <- c(temp_char, ">= 10 missing on alter attributes")
     }
     if(length(temp_char) == 0) {
       temp_char <- "no concerns"
