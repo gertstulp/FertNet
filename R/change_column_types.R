@@ -53,6 +53,7 @@ change_column_types <- function(data) {
     levels = c("I am currently expecting a child", "As soon as possible",
                "Within two years", "Between two and three years from now",
                "Between three and four years from now",
+               "Between four and five years from now",
                "In five years or more",
                "It doesn't really matter to me when I have children",
                "I'm not sure yet"),
