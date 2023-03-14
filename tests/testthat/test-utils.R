@@ -16,6 +16,11 @@ test_that("remove alter when in middle present", {
                c("5, 7, 13"))
 })
 
+test_that("remove alter when last", {
+  expect_equal(remove_alter(c("5, 6, 7, 13, 20"), "20"),
+               c("5, 6, 7, 13"))
+})
+
 test_that("replace label generic case", {
   expect_equal(replace_label(c("b"),
                              c("a", "b", "c", "d"),

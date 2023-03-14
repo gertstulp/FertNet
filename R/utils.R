@@ -6,6 +6,8 @@ remove_alter <- function(ties, alter) {
     ties_out <- ""
   } else if(startsWith(ties, paste0(alter, ", "))) {
     ties_out <- sub(paste0(alter, ", "), replacement = "", x = ties)
+  } else if(endsWith(ties, paste0(", ", alter))) {
+    ties_out <- sub(paste0(", ", alter), replacement = "", x = ties)
   } else {
     ties_out <- gsub(paste0(", ", alter, ","), replacement = ",", x = ties)
   }
