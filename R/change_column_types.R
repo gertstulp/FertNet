@@ -24,8 +24,8 @@ change_column_types <- function(data) {
                                function(x) as.character(haven::as_factor(x)))
 
   # Replace pesky curly quote by normal quote in entire dataset
-  data[ , vars_char ] <- data.frame(
-    lapply(data[ , vars_char ], function(x) { gsub("\u2019", "'", x) })
+  data[ , c(vars_char, vars_fct) ] <- data.frame(
+    lapply(data[ , c(vars_char, vars_fct) ], function(x) { gsub("\u2019", "'", x) })
   )
 
   # Transform factors that have ordering in them
