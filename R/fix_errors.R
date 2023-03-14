@@ -31,6 +31,15 @@ fix_errors <- function(data) {
   # turn to numeric, because only numbers chosen
   data$num_children_biol <- as.numeric(data$num_children_biol)
 
+  ### VARIABLE ideal_family_size ###
+  # respondent likely wanted "I don't know" rather than "10+"
+  data$ideal_family_size[data$nomem_encr == 873904] <- "I don't know"
+
+  ### VARIABLE family_size_nl ###
+  # this is novel fix of error relative to earlier documentation
+  # respondent likely wanted "I don't know" rather than "10+"
+  data$family_size_nl[data$nomem_encr == 812182] <- "I don't know"
+
   ### VARIABLE names_network ###
   data$names_network[data$names_network == "Alle namen komen uit het geheugen, en ik het niet gebruik gemaakt van een lijst met contacten"] <- "I drew all names from memory, and I did not use a list of contacts"
   data$names_network[data$names_network == "Ik heb gebruikt gemaakt van mijn mobiele telefoon"] <- "I made use of my mobile phone"
@@ -54,7 +63,6 @@ fix_errors <- function(data) {
   phone <- c(808709, 813705, 817694, 822418, 857757, 863275, 867241, 876165, 884335)
   data$remove_resp <- ifelse(data$nomem_encr %in% phone, "survey on phone/ipad", "keep")
   data$remove_resp[data$nomem_encr == 881655] <- "25 alters too many"
-
 
   data$num_child_alter13[data$nomem_encr == 839886] <- "2"
   data$num_child_alter14[data$nomem_encr == 839886] <- "2"
