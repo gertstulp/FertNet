@@ -468,7 +468,7 @@ fix_errors <- function(data) {
   data$remove_resp[data$nomem_encr == 834219] <- "Listed child below 18"
 
   # this deviates from original correction, which used erroneous nomem_encr
-  data$relation_alter9[data$nomem_encr == 836892] <- "14: via familie"
+  data$relation_alter9[data$nomem_encr == 836892] <- "5"
 
   data$relation_alter21[data$nomem_encr == 838549] <- "9"
   data$relation_alter22[data$nomem_encr == 838549] <- "9"
