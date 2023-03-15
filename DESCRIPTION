@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: person("Stulp", "Gert", email = "g.stulp@rug.nl",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0003-0173-5554"))
 Description: Processes data from The Social Networks and Fertility Survey,
-    downladed from dataarchive.lissdata.nl, including correcting 
+    downloaded from dataarchive.lissdata.nl, including correcting 
     respondent errors and transforming network data into network objects to
     facilitate analyses and visualisation.
 Encoding: UTF-8
