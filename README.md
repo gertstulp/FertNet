@@ -35,6 +35,12 @@ the data, named `wj18a_EN_1.0p.sav` from
 
 ## Installation
 
+You can install FertNet like so:
+
+``` r
+install.packages("FertNet")
+```
+
 You can install the development version of FertNet like so:
 
 ``` r
