@@ -1,5 +1,5 @@
 ## Resubmission
-This is a resubmission. In this version I have:
+This is a resubmission to a new submission. In this version I have:
 
 * Fixed the link in description upon CRAN request
 
