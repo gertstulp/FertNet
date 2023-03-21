@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/FertNet)](https://CRAN.R-project.org/package=FertNet)
 [![R-CMD-check](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
@@ -45,7 +47,7 @@ You can install the development version of FertNet like so:
 
 ``` r
 if (!require("remotes")) install.packages("remotes")
-devtools::install_github("gertstulp/FertNet")
+remotes::install_github("gertstulp/FertNet")
 ```
 
 ## Example
