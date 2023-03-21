@@ -7,7 +7,6 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/FertNet)](https://CRAN.R-project.org/package=FertNet)
-[![R-CMD-check](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/gertstulp/FertNet/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `FertNet` is very specific, namely to process and correct
@@ -112,7 +111,7 @@ ggraph(data$tidygraph[[13]], layout = "kk") +
 
 The `produce_data` function comes with one additional argument that
 allows you to keep the variables on the time it took respondents to
-answer eachcquestion. This information is probably less relevant to most
+answer each question. This information is probably less relevant to most
 researchers, which is why it defaults to being excluded.
 
 ``` r
