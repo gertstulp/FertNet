@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^wj18a_EN_1\.0p.sav
+^Recode_relationships\.csv
+^LICENSE\.md$
+^avars_201802_EN_1.0p\.sav
+^L_kinderwens_9p_corr\.Rda
+^\.github$
+^cran-comments\.md$
+^CRAN-SUBMISSION$
