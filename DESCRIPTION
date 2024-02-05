@@ -2,7 +2,7 @@ Package: FertNet
 Type: Package
 Title: Process Data from the Social Networks and Fertility Survey
 Version: 0.1.1
-Authors@R: person("Stulp", "Gert", email = "g.stulp@rug.nl",
+Authors@R: person("Gert", "Stulp", email = "g.stulp@rug.nl",
   role = c("aut", "cre"), comment = c(ORCID = "0000-0003-0173-5554"))
 Description: Processes data from The Social Networks and Fertility Survey,
     downloaded from <https://dataarchive.lissdata.nl>, including correcting 
@@ -18,3 +18,5 @@ Suggests:
     tidygraph (>= 1.2.2)
 Config/testthat/edition: 3
 License: CC BY 4.0
+URL: https://github.com/gertstulp/FertNet
+BugReports: https://github.com/gertstulp/FertNet/issues
