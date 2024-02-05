@@ -1,0 +1,11 @@
+bibentry(
+  bibtype  = "Article",
+  title    = "Describing the Dutch Social Networks and Fertility Study and how to process it",
+  author   = "Gert Stulp",
+  journal  = "Demographic Research",
+  year     = 2023,
+  volume   = 49,
+  number   = 19,
+  pages    = "492-512",
+  doi      = "10.4054/DemRes.2023.49.19"
+)
